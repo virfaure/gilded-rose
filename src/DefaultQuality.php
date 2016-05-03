@@ -1,7 +1,7 @@
 <?php
 
 
-class NormalQuality implements ItemQualityInterface
+class DefaultQuality implements ItemQualityInterface
 {
     /**
      * @var Item $item

@@ -14,7 +14,7 @@ class ItemQualityFactory
         }elseif($item->name == 'Conjured'){
             $this->itemQualityStrategy = new ConjuredQuality($item);
         }else{
-            $this->itemQualityStrategy = new NormalQuality($item);
+            $this->itemQualityStrategy = new DefaultQuality($item);
         }
     }
 
