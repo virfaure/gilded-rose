@@ -11,4 +11,12 @@ class GildedRoseTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($item->getQuality(), 19);
 
     }
+
+    public function testQualityDegradesTwiceAsFast(){
+        $item = new GildedRose('test', 0, 20);
+        $item->degrade();
+
+        $this->assertEquals($item->getSellIn(), -1);
+        $this->assertEquals($item->getQuality(), 18);
+    }
 }

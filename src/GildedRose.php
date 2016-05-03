@@ -14,6 +14,10 @@ class GildedRose
     {
         $this->item->sell_in--;
         $this->item->quality--;
+
+        if ($this->getSellIn() <= 0) {
+            $this->item->quality--;
+        }
     }
 
     public function getSellIn()
