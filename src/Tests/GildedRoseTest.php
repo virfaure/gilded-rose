@@ -41,6 +41,20 @@ class GildedRoseTest extends PHPUnit_Framework_TestCase
         $item->degrade();
 
         $this->assertEquals($item->getSellIn(), 5);
-        $this->assertEquals($item->getQuality(), 10);
+        $this->assertEquals($item->getQuality(), SulfurasQuality::DEFAULT_QUALITY);
+    }
+
+    public function testMaxQualityIsNeverReached(){
+        $item = new GildedRose('Aged Brie', 5, 50);
+        $item->degrade();
+
+        $this->assertEquals($item->getQuality(), AgedBrieQuality::MAX_QUALITY_ALLOWED);
+    }
+
+    public function testSulfurasHasAlwaysTheSameQuality(){
+        $item = new GildedRose('Sulfuras', 5, 50);
+        $item->degrade();
+
+        $this->assertEquals($item->getQuality(), SulfurasQuality::DEFAULT_QUALITY);
     }
 }

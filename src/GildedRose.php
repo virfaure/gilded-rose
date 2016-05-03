@@ -23,32 +23,6 @@ class GildedRose
     /**
      * @return int
      */
-    private function lowerQuality()
-    {
-        if ($this->getQuality() == 0) {
-            return $this->item->quality;
-        }
-
-        $this->item->quality--;
-
-        if ($this->getSellIn() <= 0) {
-            $this->item->quality--;
-        }
-
-        return $this->item->quality;
-    }
-
-    /**
-     * @return int
-     */
-    private function increaseQuality()
-    {
-       return  $this->item->quality++;
-    }
-
-    /**
-     * @return int
-     */
     private function lowerSellIn()
     {
         return $this->item->sell_in--;
