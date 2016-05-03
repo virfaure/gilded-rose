@@ -11,6 +11,8 @@ class ItemQualityFactory
             $this->itemQualityStrategy = new AgedBrieQuality($item);
         }elseif($item->name == 'Backstage Passes'){
             $this->itemQualityStrategy = new BackstagePassesQuality($item);
+        }elseif($item->name == 'Conjured'){
+            $this->itemQualityStrategy = new ConjuredQuality($item);
         }else{
             $this->itemQualityStrategy = new NormalQuality($item);
         }
