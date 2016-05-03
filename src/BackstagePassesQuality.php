@@ -1,7 +1,7 @@
 <?php
 
 
-class BackstagePassesQuality
+class BackstagePassesQuality implements ItemQualityInterface
 {
     const MAX_QUALITY_ALLOWED = 50;
 

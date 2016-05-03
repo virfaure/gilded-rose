@@ -1,7 +1,7 @@
 <?php
 
 
-class ConjuredQuality
+class ConjuredQuality implements ItemQualityInterface
 {
     /**
      * @var Item $item

@@ -1,7 +1,7 @@
 <?php
 
 
-class SulfurasQuality
+class SulfurasQuality implements ItemQualityInterface
 {
     const DEFAULT_QUALITY = 80;
 
