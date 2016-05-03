@@ -13,6 +13,11 @@ class GildedRose
     public function degrade()
     {
         $this->item->sell_in--;
+
+        if ($this->getQuality() == 0) {
+            return;
+        }
+        
         $this->item->quality--;
 
         if ($this->getSellIn() <= 0) {
