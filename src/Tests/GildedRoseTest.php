@@ -64,4 +64,18 @@ class GildedRoseTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($item->getQuality(), 31);
     }
+
+    public function testBackstagePassesIncreaseQualityBy2WhenLess10DaysLeft(){
+        $item = new GildedRose('Backstage Passes', 9, 30);
+        $item->degrade();
+
+        $this->assertEquals($item->getQuality(), 32);
+    }
+
+    public function testBackstagePassesIncreaseQualityBy3WhenLess5DaysLeft(){
+        $item = new GildedRose('Backstage Passes', 5, 30);
+        $item->degrade();
+
+        $this->assertEquals($item->getQuality(), 33);
+    }
 }

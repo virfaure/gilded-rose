@@ -26,6 +26,19 @@ class BackstagePassesQuality
     private function increaseQuality()
     {
         $this->item->quality++;
+
+        if($this->item->sell_in <= 10){
+            $this->item->quality++;
+        }
+
+        if($this->item->sell_in <= 5){
+            $this->item->quality++;
+        }
+
+        if($this->item->sell_in <= 0){
+            $this->item->quality = 0;
+        }
+
         $this->setMaxQuality();
     }
 
