@@ -35,9 +35,7 @@ class BackstagePassesQuality
             $this->item->quality++;
         }
 
-        if($this->item->sell_in <= 0){
-            $this->item->quality = 0;
-        }
+        $this->setQualityAfterConcert();
 
         $this->setMaxQuality();
     }
@@ -46,6 +44,13 @@ class BackstagePassesQuality
     {
         if ($this->item->quality > self::MAX_QUALITY_ALLOWED) {
             $this->item->quality = self::MAX_QUALITY_ALLOWED;
+        }
+    }
+
+    private function setQualityAfterConcert()
+    {
+        if ($this->item->sell_in <= 0) {
+            $this->item->quality = 0;
         }
     }
 }
