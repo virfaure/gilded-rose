@@ -38,7 +38,7 @@ class GildedRoseTest extends PHPUnit_Framework_TestCase
 
     public function testSulfurasNeverAltersSellInOrQuality(){
         $item = new GildedRose('Sulfuras', 5, 10);
-        $item->degrade();
+        $item->degradeSulfuras();
 
         $this->assertEquals($item->getSellIn(), 5);
         $this->assertEquals($item->getQuality(), 10);
