@@ -30,15 +30,15 @@ class GildedRoseTest extends PHPUnit_Framework_TestCase
 
     public function testAgedBrieIncreasesQuality(){
         $item = new GildedRose('Aged Brie', 5, 10);
-        $item->degradeSulfurasAndAgedBrie();
+        $item->degrade();
 
         $this->assertEquals($item->getSellIn(), 4);
         $this->assertEquals($item->getQuality(), 11);
     }
 
-    public function testSulfurasNeverAltersQuality(){
+    public function testSulfurasNeverAltersSellInOrQuality(){
         $item = new GildedRose('Sulfuras', 5, 10);
-        $item->degradeSulfurasAndAgedBrie();
+        $item->degrade();
 
         $this->assertEquals($item->getSellIn(), 5);
         $this->assertEquals($item->getQuality(), 10);
