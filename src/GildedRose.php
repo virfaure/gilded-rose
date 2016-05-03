@@ -13,16 +13,7 @@ class GildedRose
     public function degrade()
     {
         $this->item->sell_in--;
-
-        if ($this->getQuality() == 0) {
-            return;
-        }
-        
-        $this->item->quality--;
-
-        if ($this->getSellIn() <= 0) {
-            $this->item->quality--;
-        }
+        $this->lowerQuality();
     }
 
     public function getSellIn()
@@ -33,5 +24,18 @@ class GildedRose
     public function getQuality()
     {
         return $this->item->quality;
+    }
+
+    private function lowerQuality()
+    {
+        if ($this->getQuality() == 0) {
+            return;
+        }
+
+        $this->item->quality--;
+
+        if ($this->getSellIn() <= 0) {
+            $this->item->quality--;
+        }
     }
 }
