@@ -57,4 +57,11 @@ class GildedRoseTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($item->getQuality(), SulfurasQuality::DEFAULT_QUALITY);
     }
+
+    public function testBackstagePassesIncreaseQuality(){
+        $item = new GildedRose('Backstage Passes', 50, 30);
+        $item->degrade();
+
+        $this->assertEquals($item->getQuality(), 31);
+    }
 }

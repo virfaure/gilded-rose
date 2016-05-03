@@ -9,6 +9,8 @@ class ItemQualityFactory
             $this->itemQualityStrategy = new SulfurasQuality($item);
         }elseif($item->name == 'Aged Brie'){
             $this->itemQualityStrategy = new AgedBrieQuality($item);
+        }elseif($item->name == 'Backstage Passes'){
+            $this->itemQualityStrategy = new BackstagePassesQuality($item);
         }else{
             $this->itemQualityStrategy = new NormalQuality($item);
         }
