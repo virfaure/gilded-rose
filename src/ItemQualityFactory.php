@@ -7,6 +7,8 @@ class ItemQualityFactory
     {
         if ($item->name === 'Sulfuras') {
             $this->itemQualityStrategy = new SulfurasQuality($item);
+        }elseif($item->name == 'Aged Brie'){
+            $this->itemQualityStrategy = new AgedBrieQuality($item);
         }
     }
 

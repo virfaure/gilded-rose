@@ -10,10 +10,14 @@ class GildedRose
         $this->item = new Item($name, $sellIn, $quality);
     }
 
-    public function degradeSulfuras()
+    public function degradeSulfurasAndAgedBrie()
     {
         $itemQuality = new ItemQualityFactory($this->item);
         $itemQuality->degradeQuality();
+
+        if($this->getName() !== 'Sulfuras'){
+            $this->lowerSellIn();
+        }
     }
 
     public function degrade()
