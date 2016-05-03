@@ -15,7 +15,7 @@ class GildedRose
         $this->lowerSellIn();
 
         if ($this->getName() === 'Aged Brie') {
-            $this->item->quality++;
+            $this->increaseQuality();
         }else {
             $this->lowerQuality();
         }
@@ -27,7 +27,7 @@ class GildedRose
     private function lowerQuality()
     {
         if ($this->getQuality() == 0) {
-            return;
+            return $this->item->quality;
         }
 
         $this->item->quality--;
@@ -35,6 +35,16 @@ class GildedRose
         if ($this->getSellIn() <= 0) {
             $this->item->quality--;
         }
+
+        return $this->item->quality;
+    }
+
+    /**
+     * @return int
+     */
+    private function increaseQuality()
+    {
+       return  $this->item->quality++;
     }
 
     /**
