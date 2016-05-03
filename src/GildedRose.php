@@ -12,6 +12,10 @@ class GildedRose
 
     public function degrade()
     {
+        if($this->getName() === 'Sulfuras'){
+            return;
+        }
+        
         $this->lowerSellIn();
 
         if ($this->getName() === 'Aged Brie') {
