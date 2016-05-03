@@ -18,7 +18,7 @@ class AgedBrieQuality
         $this->item = $item;
     }
 
-    public function degradeQuality()
+    public function updateQuality()
     {
         $this->increaseQuality();
     }

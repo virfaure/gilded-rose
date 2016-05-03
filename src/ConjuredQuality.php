@@ -16,7 +16,7 @@ class ConjuredQuality
         $this->item = $item;
     }
 
-    public function degradeQuality()
+    public function updateQuality()
     {
         $this->item->quality = $this->item->quality - 2;
     }

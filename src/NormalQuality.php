@@ -16,7 +16,7 @@ class NormalQuality
         $this->item = $item;
     }
 
-    public function degradeQuality()
+    public function updateQuality()
     {
         if ($this->item->quality == 0) {
             return $this->item->quality;

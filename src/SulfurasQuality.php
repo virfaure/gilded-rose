@@ -22,7 +22,7 @@ class SulfurasQuality
     /**
      * return null
      */
-    public function degradeQuality(){
+    public function updateQuality(){
         return null;
     }
 

@@ -18,7 +18,7 @@ class ItemQualityFactory
         }
     }
 
-    public function degradeQuality(){
-        $this->itemQualityStrategy->degradeQuality();
+    public function updateQuality(){
+        $this->itemQualityStrategy->updateQuality();
     }
 }
