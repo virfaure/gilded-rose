@@ -13,7 +13,12 @@ class GildedRose
     public function degrade()
     {
         $this->lowerSellIn();
-        $this->lowerQuality();
+
+        if ($this->getName() === 'Aged Brie') {
+            $this->item->quality++;
+        }else {
+            $this->lowerQuality();
+        }
     }
 
     /**
@@ -54,5 +59,13 @@ class GildedRose
     public function getQuality()
     {
         return $this->item->quality;
+    }
+
+    /**
+     * @return string
+     */
+    private function getName()
+    {
+        return $this->item->name;
     }
 }
