@@ -3,52 +3,35 @@
 
 class GildedRose
 {
-    private $item;
 
-    public function __construct($name, $sellIn, $quality)
+    /**
+     * @param array $items
+     */
+    public function updateCatalogByEndOfDay($items)
     {
-        $this->item = new Item($name, $sellIn, $quality);
-    }
-
-    public function updateQuality()
-    {
-        $itemQuality = new ItemQualityFactory($this->item);
-        $itemQuality->updateQuality();
-
-        if($this->getName() !== 'Sulfuras'){
-            $this->lowerSellIn();
+        foreach($items as $item){
+            $this->updateQualityOfItem($item);
         }
     }
 
     /**
-     * @return int
+     * @param $item
      */
-    private function lowerSellIn()
+    private function updateQualityOfItem(Item $item)
     {
-        return $this->item->sell_in--;
+        $itemQuality = new ItemQualityFactory($item);
+        $itemQuality->updateQuality();
+
+        $this->updateSellInOfItem($item);
     }
 
     /**
-     * @return int
+     * @param $item
      */
-    public function getSellIn()
+    private function updateSellInOfItem(Item $item)
     {
-        return $this->item->sell_in;
-    }
-
-    /**
-     * @return int
-     */
-    public function getQuality()
-    {
-        return $this->item->quality;
-    }
-
-    /**
-     * @return string
-     */
-    private function getName()
-    {
-        return $this->item->name;
+        if ($item->name !== 'Sulfuras') {
+            $item->sell_in--;
+        }
     }
 }
